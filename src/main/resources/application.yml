@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb   # In-memory H2 verilənlər bazası
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+  h2:
+    console:
+      enabled: true           # H2 konsolunu aktiv edir
+      path: /h2-console       # Konsol üçün URL: http://localhost:8080/h2-console
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false
