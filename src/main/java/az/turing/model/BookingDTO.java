@@ -1,4 +1,4 @@
-package az.turing.dto;
+package az.turing.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,7 +10,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BookingDTO {
-    private long id;
-    private long flightId;
+    private Long id;
+    private Long flightId;
     private List<PassengerDTO> passengers;
 }

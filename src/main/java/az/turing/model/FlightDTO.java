@@ -1,4 +1,4 @@
-package az.turing.dto;
+package az.turing.model;
 
 import az.turing.entity.Cities;
 import lombok.AllArgsConstructor;
@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class FlightDTO {
-    private long id;
+    private Long id;
     private Cities startingPoint;
     private Cities endingPoint;
     private LocalDateTime dateTime;
