@@ -2,7 +2,7 @@ package az.turing.mapper;
 
 
 import az.turing.entity.Booking;
-import az.turing.repository.BookingDTO;
+import az.turing.dto.BookingDTO;
 import org.mapstruct.Mapper;
 
 

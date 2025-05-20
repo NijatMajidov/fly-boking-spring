@@ -1,4 +1,4 @@
-package az.turing.repository;
+package az.turing.dto;
 
 import az.turing.entity.Cities;
 import lombok.AllArgsConstructor;

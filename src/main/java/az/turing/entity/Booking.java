@@ -13,7 +13,7 @@ import java.util.List;
 @ToString
 @Entity
 @Table(name = "bookings")
-public class Booking {
+public class  Booking {
     @Id
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     private long id;
