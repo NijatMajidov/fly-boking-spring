@@ -14,6 +14,7 @@ import java.util.List;
 @EqualsAndHashCode
 @ToString
 @Entity
+@Builder
 @Table(name = "flights")
 public class Flight {
     @Id

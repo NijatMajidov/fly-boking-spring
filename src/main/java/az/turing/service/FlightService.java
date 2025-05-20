@@ -1,6 +1,6 @@
 package az.turing.service;
 
-import az.turing.dto.FlightDTO;
+import az.turing.model.FlightDTO;
 
 import java.util.List;
 
