@@ -72,7 +72,7 @@ public class BookingServiceImpl implements BookingService {
 
     @Override
     public List<BookingDTO> getBookingsByPassengerName(String name, String surname) {
-        return bookingRepository.findByPassengersName(name, surname).stream()
+        return bookingRepository.findByPassengerNameAndSurname(name, surname).stream()
                 .map(bookingMapper::toDTO)
                 .collect(Collectors.toList());
     }

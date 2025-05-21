@@ -19,7 +19,7 @@ import java.util.List;
 public class Flight {
     @Id
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @NotBlank(message = "City is required")
     @Enumerated(EnumType.STRING)
