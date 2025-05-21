@@ -15,5 +15,5 @@ public class FlightDTO {
     private Cities startingPoint;
     private Cities endingPoint;
     private LocalDateTime dateTime;
-    private int totalSeats;
+    private Integer totalSeats;
 }

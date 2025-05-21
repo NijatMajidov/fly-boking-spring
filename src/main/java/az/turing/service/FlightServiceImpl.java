@@ -42,10 +42,21 @@ public class FlightServiceImpl implements FlightService{
         Flight flight = flightRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Flight not found with id: " + id));
 
-        flight.setStartingPoint(flightDTO.getStartingPoint());
-        flight.setEndingPoint(flightDTO.getEndingPoint());
-        flight.setDateTime(flightDTO.getDateTime());
-        flight.setTotalSeats(flightDTO.getTotalSeats());
+        if (flightDTO.getStartingPoint() != null) {
+            flight.setStartingPoint(flightDTO.getStartingPoint());
+        }
+
+        if (flightDTO.getEndingPoint() != null) {
+            flight.setEndingPoint(flightDTO.getEndingPoint());
+        }
+
+        if (flightDTO.getDateTime() != null) {
+            flight.setDateTime(flightDTO.getDateTime());
+        }
+
+        if (flightDTO.getTotalSeats() != null) {
+            flight.setTotalSeats(flightDTO.getTotalSeats());
+        }
 
         Flight updatedFlight = flightRepository.save(flight);
         return flightMapper.toDTO(updatedFlight);
