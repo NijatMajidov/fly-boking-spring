@@ -32,7 +32,7 @@ public class Flight {
 
     private LocalDateTime dateTime;
 
-    private int totalSeats;
+    private Integer totalSeats;
 
     @OneToMany(mappedBy = "flight", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Booking> bookings = new ArrayList<>();
