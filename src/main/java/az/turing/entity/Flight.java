@@ -2,6 +2,7 @@ package az.turing.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -21,12 +22,12 @@ public class Flight {
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "City is required")
+    @NotNull(message = "City is required")
     @Enumerated(EnumType.STRING)
     private Cities startingPoint;
 
     @Enumerated(EnumType.STRING)
-    @NotBlank(message = "City is required")
+    @NotNull(message = "City is required")
     private Cities endingPoint;
 
     private LocalDateTime dateTime;
