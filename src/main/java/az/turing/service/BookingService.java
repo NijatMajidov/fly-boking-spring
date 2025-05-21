@@ -8,5 +8,6 @@ public interface BookingService {
     BookingDTO saveBooking(BookingDTO bookingDTO);
     void cancelBooking(long bookingId);
     BookingDTO getBookingById(long id);
+    List<BookingDTO> getAllBookings();
     List<BookingDTO> getBookingsByPassengerName(String name, String surname);
 }
