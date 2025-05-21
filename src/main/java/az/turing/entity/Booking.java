@@ -17,7 +17,7 @@ import java.util.List;
 public class  Booking {
     @Id
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     @ManyToOne
     @JoinColumn(name = "flight_id", nullable = false)
     private Flight flight;
