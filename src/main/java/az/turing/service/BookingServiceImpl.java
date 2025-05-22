@@ -67,7 +67,7 @@ public class BookingServiceImpl implements BookingService {
     public BookingDTO getBookingById(long id) {
         return bookingRepository.findById(id)
                 .map(bookingMapper::toDTO)
-                .orElse(null);
+                .orElseThrow(() -> new RuntimeException("Flight not found with id: " + id));
     }
 
     @Override
@@ -75,6 +75,35 @@ public class BookingServiceImpl implements BookingService {
         return bookingRepository.findAll().stream()
                 .map(bookingMapper::toDTO)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public BookingDTO updateBooking(Long id, BookingDTO bookingDTO) {
+        Booking booking = bookingRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Booking not found with id: " + id));
+
+        Flight flight = flightRepository.findById(bookingDTO.getFlightId())
+                .orElseThrow(() -> new RuntimeException("Flight not found with id: " + bookingDTO.getFlightId()));
+        booking.setFlight(flight);
+
+        List<Passenger> passengers = bookingDTO.getPassengers().stream()
+                .map(p -> {
+                    List<Passenger> existing = passengerRepository.findByNameAndSurname(p.getName(), p.getSurname());
+                    if (!existing.isEmpty()) {
+                        return existing.get(0);
+                    } else {
+                        Passenger newPassenger = new Passenger();
+                        newPassenger.setName(p.getName());
+                        newPassenger.setSurname(p.getSurname());
+                        return passengerRepository.save(newPassenger);
+                    }
+                })
+                .collect(Collectors.toList());
+
+        booking.setPassengers(passengers);
+
+        Booking updated = bookingRepository.save(booking);
+        return bookingMapper.toDTO(updated);
     }
 
     @Override
