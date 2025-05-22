@@ -12,8 +12,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class FlightDTO {
     private Long id;
-    private Cities startingPoint;
-    private Cities endingPoint;
+    private String startingPoint;
+    private String endingPoint;
     private LocalDateTime dateTime;
     private Integer totalSeats;
 }

@@ -1,5 +1,7 @@
 package az.turing.entity;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+
 public enum Cities {
     LONDON, PARIS, NEW_YORK, TOKYO, DUBAI, ISTANBUL, SINGAPORE, KUALA_LUMPUR, SEOUL, HONG_KONG, BAKU, BANGKOK,
     LOS_ANGELES, BARCELONA, ROME, MILAN, MADRID, BERLIN, MUNICH, FRANKFURT, AMSTERDAM, VIENNA, ZURICH, GENEVA,
@@ -19,5 +21,9 @@ public enum Cities {
             System.err.println("Invalid city name: " + name);
             return null;
         }
+    }
+    @JsonCreator
+    public static Cities fromJson(String name) {
+        return fromString(name);
     }
 }
