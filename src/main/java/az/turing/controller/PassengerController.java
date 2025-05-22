@@ -1,6 +1,5 @@
 package az.turing.controller;
 
-
 import az.turing.model.PassengerDTO;
 import az.turing.service.PassengerService;
 import lombok.AllArgsConstructor;
@@ -49,6 +48,4 @@ public class PassengerController {
         List<PassengerDTO> passengers = passengerService.getPassengersByNameAndSurname(name, surname);
         return ResponseEntity.ok(passengers);
     }
-
-
 }

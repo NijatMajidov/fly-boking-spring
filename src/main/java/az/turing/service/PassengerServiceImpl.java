@@ -16,7 +16,6 @@ public class PassengerServiceImpl implements PassengerService {
     private final PassengerRepository passengerRepository;
     private final PassengerMapper passengerMapper;
 
-
     @Override
     public PassengerDTO createPassenger(PassengerDTO passengerDTO) {
         Passenger passenger = passengerMapper.toEntity(passengerDTO);
@@ -30,6 +29,7 @@ public class PassengerServiceImpl implements PassengerService {
                 .orElseThrow(() -> new RuntimeException("Passenger not found with the id: " + id));
         return passengerMapper.toDTO(passenger);
     }
+
     @Override
     public List<PassengerDTO> getPassengersByBookingId(long bookingId) {
         List<Passenger> passengers = passengerRepository.findAllByBooking_Id(bookingId);
@@ -37,8 +37,6 @@ public class PassengerServiceImpl implements PassengerService {
                 .map(passengerMapper::toDTO)
                 .collect(Collectors.toList());
     }
-
-
 
     @Override
     public void deletePassenger(long id) {
@@ -58,7 +56,6 @@ public class PassengerServiceImpl implements PassengerService {
         return passengerMapper.toDTO(updatedPassenger);
     }
 
-
     @Override
     public PassengerDTO getPassengersByFlightId(long flightId) {
         List<Passenger> passengers = passengerRepository.findAllByBookings_Flight_Id(flightId);
@@ -66,8 +63,6 @@ public class PassengerServiceImpl implements PassengerService {
                 .map(passengerMapper::toDTO)
                 .collect(Collectors.toList());
     }
-
-
 
     public List<PassengerDTO> getPassengersByNameAndSurname(String name, String surname) {
         List<Passenger> passengers = passengerRepository.findByNameAndSurname(name, surname);

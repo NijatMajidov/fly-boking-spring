@@ -13,6 +13,5 @@ public interface PassengerRepository extends JpaRepository<Passenger, Long> {
     @Query("SELECT p FROM Passenger p JOIN p.bookings b WHERE b.id = :bookingId")
     List<Passenger> findAllByBooking_Id(@Param("bookingId") Long bookingId);
 
-
     List<Passenger> findAllByBookings_Flight_Id(long flightId);
 }
